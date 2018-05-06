@@ -4,10 +4,9 @@
 namespace SmartValue\Database\QueryType;
 
 
-use SmartValue\Database\MySQLConnection;
 use SmartValue\Database\MySQLWrapperException;
 
-class QueryType {
+class QueryType extends QueryTypeAbstract implements QueryTypeInterface {
 	
 	/**
 	 * @var string
@@ -35,7 +34,7 @@ class QueryType {
 	 * @throws MySQLWrapperException
 	 */
 	public function run(){
-		$result = MySQLConnection::getConnection()->query($this->getQuery());
+		$result = $this->getDatabaseConnection()->query($this->getQuery());
 		
 		return $result;
 	}

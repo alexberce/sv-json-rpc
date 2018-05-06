@@ -4,18 +4,18 @@
 namespace SmartValue\Database\QueryType;
 
 
-use SmartValue\Database\MySQLConnection;
 use SmartValue\Database\MySQLWrapperException;
 use SmartValue\Database\Traits\FromTrait;
 use SmartValue\Database\Traits\LimitTrait;
 use SmartValue\Database\Traits\WhereTrait;
 
-class DeleteType implements QueryTypeInterface {
+class DeleteType extends QueryTypeAbstract implements QueryTypeInterface {
 	
 	use FromTrait, WhereTrait, LimitTrait;
 	
 	/**
 	 * @return string
+	 * @throws MySQLWrapperException
 	 */
 	public function getQuery(){
 		
@@ -33,6 +33,6 @@ class DeleteType implements QueryTypeInterface {
 	 * @throws MySQLWrapperException
 	 */
 	public function run(){
-		return MySQLConnection::getConnection()->query($this->getQuery())->rowCount();
+		return $this->getDatabaseConnection()->query($this->getQuery())->rowCount();
 	}
 }

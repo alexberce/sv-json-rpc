@@ -3,7 +3,6 @@
 namespace SmartValue\Database\QueryType;
 
 use PDO;
-use SmartValue\Database\MySQLConnection;
 use SmartValue\Database\MySQLWrapperException;
 use SmartValue\Database\Traits\FromTrait;
 use SmartValue\Database\Traits\GroupByTrait;
@@ -11,7 +10,7 @@ use SmartValue\Database\Traits\OrderTrait;
 use SmartValue\Database\Traits\WhereTrait;
 use SmartValue\Database\Traits\LimitTrait;
 
-class SelectType implements QueryTypeInterface {
+class SelectType extends QueryTypeAbstract implements QueryTypeInterface {
 	
 	use FromTrait, WhereTrait, OrderTrait, GroupByTrait, LimitTrait;
 	
@@ -31,6 +30,7 @@ class SelectType implements QueryTypeInterface {
 	
 	/**
 	 * @return string
+	 * @throws MySQLWrapperException
 	 */
 	public function getQuery() {
 		$query = 'SELECT ';
@@ -50,7 +50,7 @@ class SelectType implements QueryTypeInterface {
 	 * @throws MySQLWrapperException
 	 */
 	public function run(){
-		$result = MySQLConnection::getConnection()->query($this->getQuery());
+		$result = $this->getDatabaseConnection()->query($this->getQuery());
 		
 		return $result->fetchAll(PDO::FETCH_ASSOC);
 	}

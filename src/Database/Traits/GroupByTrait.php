@@ -4,6 +4,8 @@
 namespace SmartValue\Database\Traits;
 
 
+use SmartValue\Database\MySQLWrapperException;
+
 trait GroupByTrait {
 	protected $groupBy = [];
 	
@@ -11,8 +13,13 @@ trait GroupByTrait {
 	 * @param $groupByValue
 	 *
 	 * @return $this
+	 * @throws MySQLWrapperException
 	 */
 	public function groupBy($groupByValue){
+		if(!is_string( $groupByValue)){
+			throw new MySQLWrapperException('Invalid GROUP BY value', MySQLWrapperException::INVALID_PARAM_TYPE);
+		}
+		
 		$this->groupBy[] = $groupByValue;
 		
 		return $this;

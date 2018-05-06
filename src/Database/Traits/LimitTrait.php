@@ -4,6 +4,8 @@
 namespace SmartValue\Database\Traits;
 
 
+use SmartValue\Database\MySQLWrapperException;
+
 trait LimitTrait {
 	
 	protected $limits = [];
@@ -13,8 +15,17 @@ trait LimitTrait {
 	 * @param $upperLimit
 	 *
 	 * @return $this
+	 * @throws MySQLWrapperException
 	 */
 	public function limit($lowerLimit, $upperLimit = null){
+		if(!is_numeric($lowerLimit)){
+			throw new MySQLWrapperException('Invalid lower limit value', MySQLWrapperException::INVALID_PARAM_TYPE);
+		}
+		
+		if(!is_numeric($upperLimit) && $upperLimit !== null){
+			throw new MySQLWrapperException('Invalid upper limit value', MySQLWrapperException::INVALID_PARAM_TYPE);
+		}
+		
 		$this->limits = [$lowerLimit, $upperLimit];
 		
 		return $this;

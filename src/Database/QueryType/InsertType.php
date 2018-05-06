@@ -4,10 +4,9 @@
 namespace SmartValue\Database\QueryType;
 
 
-use SmartValue\Database\MySQLConnection;
 use SmartValue\Database\MySQLWrapperException;
 
-class InsertType {
+class InsertType extends QueryTypeAbstract implements QueryTypeInterface {
 	
 	/**
 	 * @var string
@@ -80,7 +79,7 @@ class InsertType {
 	 */
 	public function run(){
 		$query = $this->getQuery();
-		$pdoObject = MySQLConnection::getConnection();
+		$pdoObject = $this->getDatabaseConnection();
 		
 		//Prepare our PDO statement.
 		$pdoStatement = $pdoObject->prepare($query);
@@ -92,7 +91,7 @@ class InsertType {
 		
 		$pdoStatement->execute();
 		
-		return MySQLConnection::getConnection()->lastInsertId();
+		return $this->getDatabaseConnection()->lastInsertId();
 	}
 	
 	/**
