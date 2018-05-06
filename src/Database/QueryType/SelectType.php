@@ -43,12 +43,12 @@ class SelectType implements QueryTypeInterface {
 	}
 	
 	/**
-	 * @return bool|\PDOStatement
+	 * @return array
 	 */
 	public function run(){
 		$result = MySQLConnection::getConnection()->query($this->getQuery());
 		
-		return $result;
+		return $result->fetchAll();
 	}
 	
 	/**
