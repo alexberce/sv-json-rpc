@@ -24,7 +24,7 @@ class AuthenticationMiddleware implements MiddlewareInterface {
 	 */
 	public function execute( $username, $password, $procedureName ) {
 		if (
-			$username !== getenv('JSON_RPC_SERVER_USERNAME') &&
+			$username !== getenv('JSON_RPC_SERVER_USERNAME') ||
 			$password !== getenv('JSON_RPC_SERVER_PASSWORD')
 		) {
 			throw new AuthenticationFailureException( 'Wrong credentials!' );
