@@ -14,7 +14,8 @@
 		}
 	},
 	"require": {
-		"symfony/dotenv": "^4.0"
+		"symfony/dotenv": "^4.0",
+		"fguillot/json-rpc": "@stable"
 	},
 	"scripts": {
 		"start": "php -S 0.0.0.0:8080 -t / public/index.php"
