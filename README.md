@@ -33,7 +33,7 @@ Approx. time to complete: 5 hours
 2. Run `composer install` to get the required dependencies
 3. Start the php servers using the scripts from the composer file
 4. Import the new locations_countries table from /data/locations_countries.sql (optional)
-5. Create a new database for the tests (optional)
+5. Create a new database for the tests. You can use the same MySQL dump (optional)
 
 ## Scripts
 
