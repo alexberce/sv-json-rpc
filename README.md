@@ -1,4 +1,4 @@
-# SmartValue practical test 
+# JSON-RPC
 
 ## Info
 
