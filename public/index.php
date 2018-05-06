@@ -1,40 +1,26 @@
-<?php
+<html>
+<head>
+	<title>SmartValue - Country Viewer</title>
+	<script
+			src="https://code.jquery.com/jquery-2.2.4.min.js"
+			integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+			crossorigin="anonymous"></script>
+	
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+</head>
+<body>
+	<div id="app">
+		<input placeholder="Country code..." type="text" id="country" name="country" />
+		
+		<div id="result">
+			<div>Country name: <span id="country-name"></span></div>
+			<div>Country prefix: <span id="country-prefix"></span></div>
+		</div>
+		
+		<div id="error"></div>
+	</div>
+	
+	<script type="text/javascript" src="assets/js/scripts.js" ></script>
+</body>
 
-use SmartValue\Database\QueryBuilder;
-use Symfony\Component\Dotenv\Dotenv;
-
-include_once "vendor/autoload.php";
-
-
-//Load DotENV
-(new Dotenv())->load(__DIR__ . '/../.env');
-
-$queryBuilder = QueryBuilder::getInstance();
-
-var_dump(
-	$queryBuilder->select(['id', 'username', 'email'])
-	             ->from('users')
-	             ->where('id > 15')
-	             ->limit(5)
-	             ->orderBy('email')
-	             ->orderBy('username', 'ASC')
-	             ->getQuery()
-);
-
-
-var_dump(
-	$queryBuilder->delete()
-	             ->from('notifications')
-	             ->where('notificationType="old"')
-	             ->limit(20)
-	             ->getQuery()
-);
-
-var_dump(
-	$queryBuilder->insert()
-	             ->into('users')
-	             ->columns(['username', 'password', 'email'])
-	             ->values(['alex', '123', 'alex@123.com'])
-	             ->values(['test', '123', 'test@123.com'])
-	             ->getQuery()
-);
+</html>

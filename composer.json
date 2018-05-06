@@ -19,7 +19,7 @@
 		"fguillot/json-rpc": "@stable"
 	},
 	"scripts": {
-		"web": "php -S 0.0.0.0:8080 -t / public/index.php",
+		"web": "php -S 0.0.0.0:8080 -t public",
 		"client": "php -S 0.0.0.0:8081 -t / public/client/index.php",
 		"server": "php -S 0.0.0.0:8082 -t / public/server/index.php"
 	}

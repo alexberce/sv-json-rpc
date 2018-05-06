@@ -1,0 +1,36 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #00b5ff;
+}
+
+#app {
+	margin: 50px auto auto;
+	padding: 20px;
+	border: 1px dashed #000;
+	max-width: 500px;
+	min-height: 200px;
+}
+
+#app input[name="country"] {
+	padding: 10px;
+	width: 100%;
+}
+
+#result {
+	color: #fff;
+	display: none;
+}
+
+#result > div {
+	margin: 10px auto;
+}
+
+#error {
+	margin-top: 10px;
+	color: #f00;
+}

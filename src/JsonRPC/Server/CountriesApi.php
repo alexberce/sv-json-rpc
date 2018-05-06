@@ -19,6 +19,7 @@ class CountriesApi {
 			->select(['id', 'name', 'prefix'])
 			->from('locations_countries')
 			->where('code = "' . $code . '"')
+			->limit(1)
 			->run();
 	}
 	
