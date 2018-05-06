@@ -40,9 +40,9 @@ Approx. time to complete: 5 hours
 PHP Servers
 
 ```
-    composer run web --timeout=0
-    composer run client --timeout=0
-    composer run server --timeout=0
+composer run web --timeout=0
+composer run client --timeout=0
+composer run server --timeout=0
 ```
 
 ## Servers
