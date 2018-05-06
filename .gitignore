@@ -1,0 +1,9 @@
+#Editors
+.idea
+
+#Composer
+/vendor/
+composer.lock
+
+#Env
+.env

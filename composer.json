@@ -1,0 +1,19 @@
+{
+	"name": "alexberce/smartvalue",
+	"description": "Technical test",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Alexandru Berce",
+			"email": "alexandru.berce@gmail.com"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"SmartValue\\": "src/"
+		}
+	},
+	"scripts": {
+		"start": "php -S 0.0.0.0:8080 -t / public/index.php"
+	}
+}
