@@ -1,4 +1,4 @@
-# SmartValue Practical test 
+# SmartValue practical test 
 
 ## Info
 
@@ -27,7 +27,9 @@ PHP Servers
 ## Servers
 
 [http://127.0.0.1:8080](http://127.0.0.1:8080) - Web Application
+
 [http://127.0.0.1:8081](http://127.0.0.1:8081) - JSON-RPC client
+
 [http://127.0.0.1:8082](http://127.0.0.1:8082) - JSON-RPC server
 
 ## Tests
