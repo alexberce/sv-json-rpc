@@ -2,6 +2,7 @@
 
 namespace SmartValue\Database\QueryType;
 
+use PDO;
 use SmartValue\Database\MySQLConnection;
 use SmartValue\Database\Traits\FromTrait;
 use SmartValue\Database\Traits\GroupByTrait;
@@ -48,7 +49,7 @@ class SelectType implements QueryTypeInterface {
 	public function run(){
 		$result = MySQLConnection::getConnection()->query($this->getQuery());
 		
-		return $result->fetchAll();
+		return $result->fetchAll(PDO::FETCH_ASSOC);
 	}
 	
 	/**
