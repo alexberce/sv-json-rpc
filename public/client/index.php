@@ -16,7 +16,7 @@ try {
 	$client = new Client('http://127.0.0.1:8082');
 	$client->getHttpClient()
 	       ->withUsername(getenv('JSON_RPC_SERVER_USERNAME'))
-	       ->withPassword(getenv('JSON_RPC_SERVER_PASSWORD'))->withDebug();
+	       ->withPassword(getenv('JSON_RPC_SERVER_PASSWORD'));
 
 	$result = $client->execute( "getCountriesInfoByCode", ['code' => $countryCode]);
 	
