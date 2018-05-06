@@ -11,17 +11,26 @@ class MySQLConnection {
 	
 	private $connection = null;
 	
+	/**
+	 * MySQLConnection constructor.
+	 *
+	 * @throws MySQLWrapperException
+	 */
 	protected function __construct() {
-		$this->connection = new PDO(
-			"mysql:host=" . getenv( 'DATABASE_HOST' ) . ";dbname=" .  getenv( 'DATABASE_NAME' ),
-			getenv( 'DATABASE_USERNAME' ),
-			getenv( 'DATABASE_PASSWORD' )
-		);
+		try {
+			$this->connection = new PDO(
+				"mysql:host=" . getenv( 'DATABASE_HOST' ) . ";dbname=" .  getenv( 'DATABASE_NAME' ),
+				getenv( 'DATABASE_USERNAME' ),
+				getenv( 'DATABASE_PASSWORD' )
+			);
+		} catch (\Exception $exception) {
+			throw new MySQLWrapperException('Invalid connection');
+		}
 	}
 	
 	/**
 	 * @return PDO
-	 * @throws PDOException
+	 * @throws MySQLWrapperException
 	 */
 	public static function getConnection() {
 		if(self::$instance === null)

@@ -5,9 +5,13 @@ namespace SmartValue\Database\QueryType;
 
 
 use SmartValue\Database\MySQLConnection;
+use SmartValue\Database\MySQLWrapperException;
 
 class QueryType {
 	
+	/**
+	 * @var string
+	 */
 	private $query;
 	
 	/**
@@ -28,6 +32,7 @@ class QueryType {
 	
 	/**
 	 * @return bool|\PDOStatement
+	 * @throws MySQLWrapperException
 	 */
 	public function run(){
 		$result = MySQLConnection::getConnection()->query($this->getQuery());

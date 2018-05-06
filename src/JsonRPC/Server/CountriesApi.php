@@ -4,6 +4,7 @@
 namespace SmartValue\JsonRPC\Server;
 
 
+use SmartValue\Database\MySQLWrapperException;
 use SmartValue\Database\QueryBuilder;
 
 class CountriesApi {
@@ -12,6 +13,7 @@ class CountriesApi {
 	 * @param string $code
 	 *
 	 * @return array
+	 * @throws MySQLWrapperException
 	 */
 	public function getCountriesInfoByCode($code = ''){
 		

@@ -4,6 +4,7 @@ namespace SmartValue\Database\QueryType;
 
 use PDO;
 use SmartValue\Database\MySQLConnection;
+use SmartValue\Database\MySQLWrapperException;
 use SmartValue\Database\Traits\FromTrait;
 use SmartValue\Database\Traits\GroupByTrait;
 use SmartValue\Database\Traits\OrderTrait;
@@ -45,6 +46,8 @@ class SelectType implements QueryTypeInterface {
 	
 	/**
 	 * @return array
+	 *
+	 * @throws MySQLWrapperException
 	 */
 	public function run(){
 		$result = MySQLConnection::getConnection()->query($this->getQuery());

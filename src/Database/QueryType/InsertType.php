@@ -5,6 +5,7 @@ namespace SmartValue\Database\QueryType;
 
 
 use SmartValue\Database\MySQLConnection;
+use SmartValue\Database\MySQLWrapperException;
 
 class InsertType {
 	
@@ -75,6 +76,7 @@ class InsertType {
 	
 	/**
 	 * @return string
+	 * @throws MySQLWrapperException
 	 */
 	public function run(){
 		$query = $this->getQuery();
