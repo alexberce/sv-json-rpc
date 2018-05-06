@@ -4,7 +4,6 @@
 namespace SmartValue\JsonRPC\Server\Middleware;
 
 
-use JsonRPC\Exception\AccessDeniedException;
 use JsonRPC\Exception\AuthenticationFailureException;
 use JsonRPC\MiddlewareInterface;
 
