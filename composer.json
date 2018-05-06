@@ -14,10 +14,13 @@
 		}
 	},
 	"require": {
-		"symfony/dotenv": "^4.0",
+		"php": "^5.6",
+		"symfony/dotenv": "^3.4",
 		"fguillot/json-rpc": "@stable"
 	},
 	"scripts": {
-		"start": "php -S 0.0.0.0:8080 -t / public/index.php"
+		"web": "php -S 0.0.0.0:8080 -t / public/index.php",
+		"client": "php -S 0.0.0.0:8081 -t / public/client/index.php",
+		"server": "php -S 0.0.0.0:8082 -t / public/server/index.php"
 	}
 }
