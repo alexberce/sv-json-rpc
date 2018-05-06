@@ -24,16 +24,9 @@ class MySQLConnection {
 	 * @throws PDOException
 	 */
 	public static function getConnection() {
-		return (self::getInstance())->connection;
+		if(self::$instance === null)
+			self::$instance = new static();
+		
+		return self::$instance->connection;
 	}
-	
-	/**
-	 * @return MySQLConnection
-	 */
-	private static function getInstance(  ) {
-		return self::$instance === null
-			? new static()
-			: self::$instance;
-	}
-	
 }
