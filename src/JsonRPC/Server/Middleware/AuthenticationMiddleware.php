@@ -19,7 +19,6 @@ class AuthenticationMiddleware implements MiddlewareInterface {
 	 * @param  string $password
 	 * @param  string $procedureName
 	 *
-	 * @throws AccessDeniedException
 	 * @throws AuthenticationFailureException
 	 */
 	public function execute( $username, $password, $procedureName ) {
