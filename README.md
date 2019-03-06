@@ -2,7 +2,7 @@
 
 ## Info
 
-Tho code on this repository/archive implements the requirements from the techinical test, which are:
+Tho code on this repository/archive implements the requirements from the technical test, which are:
 
 1. A database wrapper (can be found in /src/Database/). [Usage](/src/Database/README.md)
 2. A JSON-RPC server (can be found in /public/server and /src/JsonRPC).
